@@ -23,6 +23,8 @@ public class CuentaBancaria {
     public void setAccountNumber(String accountNumber) {
         if (accountNumber == null) {
             throw new IllegalArgumentException("El número de cuenta no puede ser nulo");
+        }else if (accountNumber.length() < 8) { // Por ejemplo, establecer una longitud mínima de 8 caracteres
+            throw new IllegalArgumentException("La longitud mínima del número de cuenta es de 8 caracteres.");
         }
         this.accountNumber = accountNumber;
     }

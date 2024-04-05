@@ -1,5 +1,11 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 
 public class Usuario {
@@ -110,6 +116,37 @@ public class Usuario {
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    // Método para guardar un usuario en un archivo de texto
+    public void saveUser() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("usuario.txt"))) {
+            writer.write(name + "," + surname + "," + email + "," + password + "," + phoneNumber + "," + address);
+        } catch (IOException e) {
+            System.err.println("Error al guardar el usuario en el archivo.");
+            e.printStackTrace();
+            // Manejo de errores, por ejemplo, lanzar una excepción personalizada
+        }
+    }
+
+    // Método para cargar un usuario desde un archivo de texto
+    public void loadUser() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("usuario.txt"))) {
+            String line = reader.readLine();
+            if (line != null) {
+                String[] userData = line.split(",");
+                name = userData[0];
+                surname = userData[1];
+                email = userData[2];
+                password = userData[3];
+                phoneNumber = userData[4];
+                address = userData[5];
+            }
+        } catch (IOException e) {
+            System.err.println("Error al cargar el usuario desde el archivo.");
+            e.printStackTrace();
+            // Manejo de errores, por ejemplo, lanzar una excepción personalizada
+        }
     }
 
     @Override
