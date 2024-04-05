@@ -21,6 +21,9 @@ public class CuentaBancaria {
     }
 
     public void setAccountNumber(String accountNumber) {
+        if (accountNumber == null) {
+            throw new IllegalArgumentException("El número de cuenta no puede ser nulo");
+        }
         this.accountNumber = accountNumber;
     }
 
@@ -34,27 +37,29 @@ public class CuentaBancaria {
 
 
     // Método para depositar dinero en la cuenta
-    public void depositar(double ammount) {
-        if (ammount > 0) {
-            balance += ammount;
-            System.out.println("Se depositaron " + ammount + " unidades monetarias en la cuenta.");
+    public void depositar(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("La cantidad a depositar debe ser mayor que cero.");
         } else {
-            System.out.println("La cantidad a depositar debe ser mayor que cero.");
+            balance += amount;
+            System.out.println("Se depositaron " + amount + " unidades monetarias en la cuenta.");
         }
     }
+
     // Método para retirar dinero de la cuenta
     public void retirar(double cantidad) {
-        if (cantidad > 0) {
-            if (cantidad <= balance) {
-                balance -= cantidad;
-                System.out.println("Se retiraron " + cantidad + " unidades monetarias de la cuenta.");
-            } else {
-                System.out.println("Saldo insuficiente para realizar la transacción.");
-            }
-        } else {
-            System.out.println("La cantidad a retirar debe ser mayor que cero.");
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("La cantidad a retirar debe ser mayor que cero.");
         }
+
+        if (cantidad > balance) {
+            throw new IllegalArgumentException("Saldo insuficiente para realizar la transacción.");
+        }
+
+        balance -= cantidad;
+        System.out.println("Se retiraron " + cantidad + " unidades monetarias de la cuenta.");
     }
+
 
     // Método para consultar el saldo actual de la cuenta
     public double consultarSaldo() {

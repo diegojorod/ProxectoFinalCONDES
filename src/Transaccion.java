@@ -52,15 +52,16 @@ public class Transaccion {
     }
 
     // Método para calcular el saldo
-    public double calculateBalance(double currentBalance) {
+    public double calculateBalance(double currentBalance, String typeTransaction, double amount) {
         if (typeTransaction.equals("Ingreso")) {
-            return currentBalance + ammount;
+            return currentBalance + amount;
         } else if (typeTransaction.equals("Gasto")) {
-            return currentBalance - ammount;
+            return currentBalance - amount;
         } else {
             return currentBalance;
         }
     }
+
     // Método para validar la cantidad de la transacción
     public boolean isValidTransactionAmount() {
         return ammount >= 0; 
