@@ -125,7 +125,7 @@ public class Usuario {
         } catch (IOException e) {
             System.err.println("Error al guardar el usuario en el archivo.");
             e.printStackTrace();
-            // Manejo de errores, por ejemplo, lanzar una excepción personalizada
+
         }
     }
 
@@ -145,7 +145,7 @@ public class Usuario {
         } catch (IOException e) {
             System.err.println("Error al cargar el usuario desde el archivo.");
             e.printStackTrace();
-            // Manejo de errores, por ejemplo, lanzar una excepción personalizada
+
         }
     }
 

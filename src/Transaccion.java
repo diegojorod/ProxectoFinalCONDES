@@ -53,7 +53,7 @@ public class Transaccion {
 
     // Método para calcular el saldo
     public double calculateBalance(double currentBalance, TipoTransaccion tipoTransaccion, double amount) {
-        if (tipoTransaccion == TipoTransaccion.INGRESO) {
+        if (TipoTransaccion.INGRESO == tipoTransaccion) {
             return currentBalance + amount;
         } else if (tipoTransaccion == TipoTransaccion.GASTO) {
             return currentBalance - amount;
