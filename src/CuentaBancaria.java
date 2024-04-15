@@ -5,7 +5,12 @@ public class CuentaBancaria {
     private double balance;
 
 
-    //constructor
+
+    /**
+     * Constructor de la clase CuentaBancaria.
+     * @param accountNumber El número de cuenta de la cuenta bancaria.
+     * @param balance El saldo inicial de la cuenta bancaria.
+     */
 
     public CuentaBancaria(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
@@ -38,7 +43,11 @@ public class CuentaBancaria {
     }
 
 
-    // Método para depositar dinero en la cuenta
+    /**
+     * Método para depositar dinero en la cuenta.
+     * @param amount La cantidad a depositar en la cuenta.
+     * @throws IllegalArgumentException Si la cantidad a depositar es menor o igual a cero.
+     */
     public void depositar(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("La cantidad a depositar debe ser mayor que cero.");
@@ -48,7 +57,11 @@ public class CuentaBancaria {
         }
     }
 
-    // Método para retirar dinero de la cuenta
+    /**
+     * Método para retirar dinero de la cuenta.
+     * @param cantidad La cantidad a retirar de la cuenta.
+     * @throws IllegalArgumentException Si la cantidad a retirar es menor o igual a cero, o si el saldo es insuficiente.
+     */
     public void retirar(double cantidad) {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad a retirar debe ser mayor que cero.");
@@ -63,7 +76,10 @@ public class CuentaBancaria {
     }
 
 
-    // Método para consultar el saldo actual de la cuenta
+    /**
+     * Método para consultar el saldo actual de la cuenta.
+     * @return El saldo actual de la cuenta bancaria.
+     */
     public double consultarSaldo() {
         return balance;
     }

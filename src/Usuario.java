@@ -20,7 +20,15 @@ public class Usuario {
 
     private String address;
 
-    //constructor
+    /**
+     * Constructor de la clase Usuario con todos los atributos.
+     * @param name Nombre del usuario.
+     * @param surname Apellido del usuario.
+     * @param email Email del usuario.
+     * @param password Contraseña del usuario.
+     * @param phoneNumber Número de teléfono del usuario.
+     * @param address Dirección del usuario.
+     */
 
     public Usuario(String name, String surname, String email, String password, String phoneNumber, String address) {
         this.name = name;
@@ -30,7 +38,14 @@ public class Usuario {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
-
+    /**
+     * Constructor de la clase Usuario sin número de teléfono.
+     * @param name Nombre del usuario.
+     * @param surname Apellido del usuario.
+     * @param email Email del usuario.
+     * @param password Contraseña del usuario.
+     * @param address Dirección del usuario.
+     */
     public Usuario(String name, String surname, String email, String password, String address) {
         this.name = name;
         this.surname = surname;
@@ -90,7 +105,15 @@ public class Usuario {
         this.address = address;
     }
 
-    // Método para actualizar la información del usuario
+    /**
+     * Método para actualizar la información del usuario con nuevos datos.
+     * @param newName Nuevo nombre del usuario.
+     * @param newSurname Nuevo apellido del usuario.
+     * @param newEmail Nuevo email del usuario.
+     * @param newPassword Nueva contraseña del usuario.
+     * @param newPhoneNumber Nuevo número de teléfono del usuario.
+     * @param newAddress Nueva dirección del usuario.
+     */
     public void updateUserInfo(String newName, String newSurname, String newEmail, String newPassword, String newPhoneNumber, String newAddress) {
         if (!newName.isEmpty()) {
             name = newName;
@@ -110,7 +133,10 @@ public class Usuario {
             address = newAddress;
         }
     }
-
+    /**
+     * Método para validar si el email del usuario es válido.
+     * @return true si el email es válido, false en caso contrario.
+     */
     public boolean isValidEmail() {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
@@ -118,7 +144,9 @@ public class Usuario {
         return matcher.matches();
     }
 
-    // Método para guardar un usuario en un archivo de texto
+    /**
+     * Método para guardar la información del usuario en un archivo de texto.
+     */
     public void saveUser() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("usuario.txt"))) {
             writer.write(name + "," + surname + "," + email + "," + password + "," + phoneNumber + "," + address);
@@ -129,7 +157,9 @@ public class Usuario {
         }
     }
 
-    // Método para cargar un usuario desde un archivo de texto
+    /**
+     * Método para cargar la información de un usuario desde un archivo de texto.
+     */
     public void loadUser() {
         try (BufferedReader reader = new BufferedReader(new FileReader("usuario.txt"))) {
             String line = reader.readLine();
@@ -148,7 +178,10 @@ public class Usuario {
 
         }
     }
-
+    /**
+     * Método toString que devuelve una representación en forma de cadena del objeto Usuario.
+     * @return Representación en forma de cadena del objeto Usuario.
+     */
     @Override
     public String toString() {
         return "Usuario{" +
