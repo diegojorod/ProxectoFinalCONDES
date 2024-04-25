@@ -13,6 +13,9 @@ public class Transaccion {
      * @param typeTransaction El tipo de transacción (ingreso o gasto).
      * @param ammount El monto de la transacción.
      */
+
+
+
     public Transaccion(LocalDateTime date, String typeTransaction, double ammount) {
         this.date = date;
         this.typeTransaction = typeTransaction;
