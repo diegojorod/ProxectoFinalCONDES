@@ -8,5 +8,8 @@ public class Main {
         CuentaBancaria newCuentaBancaria = new CuentaBancaria("466665841", 1400.00);
 
         newCuentaBancaria.depositar(1000);
+
+        newCuentaBancaria.consultarSaldo();
+
     }
 }
